@@ -2,13 +2,16 @@ from task import Task
 
 def main():
     task_manager = Task()
+    menu = """
+    Task Manager
+    1. Add Task
+    2. Delete Task
+    3. Mark Task as Completed
+    4. List Tasks
+    5. Exit
+    """
     while True:
-        print("\nTask Manager")
-        print("1. Add Task")
-        print("2. Delete Task")
-        print("3. Mark Task as Completed")
-        print("4. List Tasks")
-        print("5. Exit")
+        print(menu)
         choice = input("Choose an option: ")
 
         if choice == '1':
