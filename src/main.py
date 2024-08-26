@@ -1,29 +1,26 @@
-from task import Task
+from task import TaskManager
 
 def main():
-    task_manager = Task()
-    menu = """
-    Task Manager
-    1. Add Task
-    2. Delete Task
-    3. Mark Task as Completed
-    4. List Tasks
-    5. Exit
-    """
+    t = TaskManager()
+    print("Task Manager")
+    print("1. Add Task\n2. Delete Task\n3. Mark Task as Completed\n4. List Tasks\n5. Exit")
     while True:
-        print(menu)
-        choice = input("Choose an option: ")
+        try:
+            value = int(input("Choose an option: "))
+        except ValueError:
+            print("Invalid choice. Please try again.")
+            continue
 
-        if choice == '1':
-            task_manager.add_task_in_file()
-        elif choice == '2':
-            task_manager.delete_task()
-        elif choice == '3':
-            task_manager.mark_status()
-        elif choice == '4':
-            task_manager.get_tasks()
-        elif choice == '5':
-            task_manager.terminate()
+        if value == 1:
+            t.add_task_in_file()
+        elif value == 2:
+            t.delete_task()
+        elif value == 3:
+            t.mark_status()
+        elif value == 4:
+            t.get_tasks()
+        elif value == 5:
+            t.terminate()
             break
         else:
             print("Invalid choice. Please try again.")
